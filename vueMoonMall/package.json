@@ -13,8 +13,14 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "babel-runtime": "^6.0.0",
+    "moment": "^2.13.0",
+    "node-sass": "^3.7.0",
+    "sass-loader": "^3.2.0",
     "vue": "^1.0.21",
-    "babel-runtime": "^6.0.0"
+    "vue-resource": "^0.7.4",
+    "vue-router": "^0.7.13",
+    "vue-swipe": "^0.2.6"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
