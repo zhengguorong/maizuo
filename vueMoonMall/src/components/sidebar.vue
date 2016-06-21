@@ -1,8 +1,8 @@
 <template>
   <aside class="application-sidebar">
-    <div class="sidebar-container" v-if="show"  @click="hideNav">
+    <div class="sidebar-container" @click="hideNav" v-show="show" transition="sidebar">
       <div class="sidebar-overlay">
-        <nav  v-if="show" transition="leftNav">
+        <nav v-show="show" transition="leftNav">
           <ul>
             <li><a v-link="{path:'/'}"><span>首页</span><i class="iconfont icon-arrow-right right"></i></a></li>
             <li><a v-link="{path:'/film'}"><span>影片</span><i class="iconfont icon-arrow-right right"></i></a></li>
@@ -18,11 +18,15 @@
 
 <style lang="scss">
 .application-sidebar {
-  .leftNav-enter{
+  .sidebar-transition{
+    transition: all ease .4s;
+    -webkit-transition: all ease .4s;
   }
-  .leftNav-leave{
-    right:320px
+  .sidebar-enter, .sidebar-leave {
+    opacity: 0;
   }
+
+
   .sidebar-container {
     position: fixed;
     top: 0;
@@ -42,8 +46,13 @@
       right: 0;
       bottom: 0;
       left: 0;
-      transition: all ease 0.4s;
-      -webkit-transition: all ease 0.4s;
+      .leftNav-transition{
+        transition: right ease .4s;
+        -webkit-transition: right ease .4s;
+      }
+      .leftNav-enter, .leftNav-leave {
+        right:380px;
+      }
       nav {
         border-top: 1px solid #222;
         box-shadow: 0 1px 1px #363636 inset;
@@ -54,11 +63,13 @@
         right: 110px;
         bottom: 0;
         left: 0;
-        transition: all ease 3.4s;
-        -webkit-transition: all ease 3.4s;
+
         li{
+          overflow: hidden;
           line-height: 50px;
+          height: 51px;
           a{
+
             display: block;
             /*width: 100%;*/
             padding: 0 16px;
@@ -73,16 +84,18 @@
       }
     }
   }
+
   }
 </style>
 
 <script>
+  import Vue from 'vue'
   export default{
     props: {
       show: {
         type: Boolean,
         default:false,
-        twoWay:true
+//        twoWay:true
       }
     },
     methods:{

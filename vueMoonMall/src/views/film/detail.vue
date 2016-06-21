@@ -16,7 +16,7 @@
       </div>
       <div class="film-word2">
         <span>主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;演：</span>
-        <span>123</span></div>
+        <span>{{actors}}</span></div>
       <div class="film-word2">
         <span>地区语言：</span>
         <span>{{film.nation}}</span>
@@ -104,6 +104,15 @@
     data(){
       return{
         film:{}
+      }
+    },
+    computed:{
+      actors:function(){
+        let actors="";
+          this.film.actors&&this.film.actors.forEach(actor => {
+            actors += actor.name + " | "
+        })
+        return actors
       }
     },
     methods:{
