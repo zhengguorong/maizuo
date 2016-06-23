@@ -7,3 +7,4 @@ export const getNowPlayingFilms = state => state.film.nowPlayingFilms
 export const getDetail = state => state.film.detail
 export const getBillboards = state => state.film.billboards
 export const getLeftNavState = state => state.app.leftNavState
+export const getLoading = state => state.app.loading

@@ -21,7 +21,8 @@
     "vue-resource": "^0.7.4",
     "vue-router": "^0.7.13",
     "vue-swipe": "^0.2.6",
-    "vuex": "^0.6.3"
+    "vuex": "^0.6.3",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

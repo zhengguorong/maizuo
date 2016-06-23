@@ -1,3 +1,4 @@
+import vue from 'vue'
 /**
  * Created by zhengguorong on 16/6/22.
  */
@@ -7,7 +8,8 @@
  * @param  {String} options.query query参数
  * @return {Promise}               Promise
  */
-const _get = ({ url, query }) => {
+const _get = ({ url, query },dispatch) => {
+  if(dispatch) dispatch('START_LOADING')
   let _url;
   if (query) {
     _url = `http://m.maizuo.com/v4/api${url}?${query}`;
@@ -15,10 +17,11 @@ const _get = ({ url, query }) => {
     _url = `http://m.maizuo.com/v4/api${url}`;
   }
 
-  return fetch(_url)
+  return vue.http.get(_url)
     .then((res) => {
+      if(dispatch) dispatch('FINISH_LOADING')
       if (res.status >= 200 && res.status < 300) {
-        return res.json();
+        return res.data;
       }
       return Promise.reject(new Error(res.status));
     });
@@ -31,17 +34,10 @@ const _get = ({ url, query }) => {
  * @return {Promise}        Promise
  */
 const _post = (url, params) => {
-  return fetch(`http://m.maizuo.com/v4/api${url}`, {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(params),
-  })
+  return vue.http.post(`http://m.maizuo.com/v4/api${url}`, params)
     .then((res) => {
       if (res.status >= 200 && res.status < 300) {
-        return res.json();
+        return res.data;
       }
       return Promise.reject(new Error(res.status));
     });
@@ -57,7 +53,7 @@ const _post = (url, params) => {
 export const fetchComingSoonLists = ({ dispatch }, page,count) => {
   const url = '/film/coming-soon';
   const query = `count=${count}&page=${page}&_t=`+new Date().getTime();
-  return _get({ url, query })
+  return _get({ url, query},dispatch)
     .then((json) => {
       if (json.status===0) {
         return dispatch('FETCH_COMING_SOON_SUCCESS', json.data);
@@ -79,7 +75,7 @@ export const fetchComingSoonLists = ({ dispatch }, page,count) => {
 export const fetchNowPlayingLists = ({ dispatch }, page,count) => {
   const url = '/film/now-playing';
   const query = `count=${count}&page=${page}&_t=`+new Date().getTime();
-  return _get({ url, query })
+  return _get({ url, query },dispatch)
     .then((json) => {
       if (json.status===0) {
         return dispatch('FETCH_NOW_PLAYING_SUCCESS', json.data);
@@ -100,7 +96,7 @@ export const fetchNowPlayingLists = ({ dispatch }, page,count) => {
 export const fetchFilmDetail = ({dispatch},id) => {
   const url = '/film/'+id;
   const query = '_t='+new Date().getTime()
-  return _get({ url, query })
+  return _get({ url, query },dispatch)
     .then((json) => {
       if (json.status===0) {
         return dispatch('FETCH_DETAIL_SUCCESS', json.data);
@@ -121,7 +117,7 @@ export const fetchFilmDetail = ({dispatch},id) => {
 export const fetchBillboards = ({dispatch}) => {
   const url = '/billboard/home';
   const query = '_t='+new Date().getTime()
-  return _get({ url, query })
+  return _get({ url, query },dispatch)
     .then((json) => {
       if (json.status===0) {
         return dispatch('FETCH_BANNER_SUCCESS', json.data);
