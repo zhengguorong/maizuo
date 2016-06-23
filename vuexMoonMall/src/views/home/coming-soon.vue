@@ -32,6 +32,7 @@
 
 <script>
   import FilmItem from '../../components/film-item'
+
   export default{
     props:{
       films:{

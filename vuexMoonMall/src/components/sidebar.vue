@@ -90,17 +90,20 @@
 
 <script>
   import Vue from 'vue'
+  import {getLeftNavState} from '../vuex/getters'
+  import {changeLeftNavState} from '../vuex/actions'
   export default{
-    props: {
-      show: {
-        type: Boolean,
-        default:false,
-//        twoWay:true
+    vuex:{
+      getters:{
+        show:getLeftNavState
+      },
+      actions:{
+        changeLeftNavState
       }
     },
     methods:{
       hideNav(){
-        this.show=false
+        this.changeLeftNavState(false)
       }
 
     }

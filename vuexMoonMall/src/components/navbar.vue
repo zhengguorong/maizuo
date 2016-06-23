@@ -88,19 +88,17 @@
   }
 </style>
 <script>
+    import {changeLeftNavState} from '../vuex/actions'
     export default{
-        data(){
-          return {
-
+        vuex:{
+          actions:{
+            changeLeftNavState
           }
         },
         methods:{
           showNav(){
-            this.$dispatch('showNav');
+            this.changeLeftNavState(true)
           }
-        },
-        components:{
-
         }
     }
 </script>

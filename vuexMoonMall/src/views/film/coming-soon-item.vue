@@ -80,14 +80,13 @@
 </style>
 <script>
   import ImagePlaceholder from '../../components/image-placeholder'
+  import {getNowPlayingFilms} from '../../vuex/getters'
+  import {fetch} from '../../vuex/actions'
   export default{
     props:{
       film:{
         type:Object,
         required:true
-      },
-      ready:{
-        type:Boolean
       }
     },
     components:{

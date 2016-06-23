@@ -1,7 +1,7 @@
 <template>
   <div class="film-list">
     <ul>
-      <coming-soon-item v-for="film in comingSoonFilms" :film="film" :ready='ready'></coming-soon-item>
+      <coming-soon-item v-for="film in comingSoonFilms" :film="film"></coming-soon-item>
     </ul>
   </div>
 </template>
@@ -11,44 +11,19 @@
 </style>
 <script>
   import ComingSoonItem from './coming-soon-item'
+  import {getComingSoonFilms} from '../../vuex/getters'
+  import {fetchComingSoonLists} from '../../vuex/actions'
   export default{
-    data(){
-      return {
-        comingSoonFilms:[],
-        ready:false
+    vuex:{
+      getters:{
+        comingSoonFilms:getComingSoonFilms,
+      },
+      actions:{
+        fetchComingSoonLists
       }
     },
     ready(){
-      this.getComingSoon()
-    },
-    methods:{
-      getComingSoon(){
-        const self = this
-        let successCallback = (response) =>
-        {
-          const data = response.data
-          //数据对象
-          const json = data.data
-          if (data.status === 0) {
-            self.comingSoonFilms = json.films
-          }
-          setTimeout(()=>{
-            self.ready = true;
-          },100)
-        }
-        let errorCallback = (json) =>
-        {
-          self.ready = true;
-          //console.log(json)
-        }
-        let data = {
-          _t: new Date().getTime(),
-          count: 3,
-          page: 1
-        }
-
-        self.$http.get('http://m.maizuo.com/v4/api/film/coming-soon', [data]).then(successCallback, errorCallback)
-      },
+      this.fetchComingSoonLists(1,10)
     },
     components:{
       ComingSoonItem

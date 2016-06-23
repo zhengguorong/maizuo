@@ -4,7 +4,7 @@
       <div class="application-view">
       <router-view></router-view>
         <div>
-      <Sidebar :show.sync="show"></Sidebar>
+      <Sidebar></Sidebar>
     </div>
 </template>
 
@@ -13,20 +13,12 @@ require('./assets/styles/icon.css')
 require('./assets/styles/reset.css')
 import Sidebar from './components/sidebar'
 import Navbar from './components/navbar'
+import store from './vuex/store';
 export default {
-  data(){
-    return {
-      show:false
-    }
-  },
   components: {
     Sidebar,Navbar
   },
-  events: {
-    'showNav':function(){
-      this.show=true;
-    }
-  }
+  store
 }
 </script>
 

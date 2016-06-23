@@ -96,14 +96,19 @@
 
 <script>
   import moment from 'moment'
+  import {getDetail} from '../../vuex/getters'
+  import {fetchFilmDetail} from '../../vuex/actions'
   import ImagePlaceholder from '../../components/image-placeholder'
   export default{
     ready(){
-      this.getDetail(this.$route.params.id)
+      this.fetchFilmDetail(this.$route.params.id)
     },
-    data(){
-      return{
-        film:{}
+    vuex:{
+      getters:{
+        film:getDetail
+      },
+      actions:{
+        fetchFilmDetail
       }
     },
     computed:{
@@ -116,17 +121,6 @@
       }
     },
     methods:{
-      getDetail(id){
-        const self = this
-        self.$http.get('http://m.maizuo.com/v4/api/film/'+id,{_t: new Date().getTime()}).then(response =>{
-          let data = response.data
-          //数据对象
-          let json = data.data
-          if (data.status === 0) {
-          self.film = json.film
-        }
-      },(response)=>{console.log(response)})
-      },
       getTime(date){
         return moment(date).format('M月DD日上映');
       }
