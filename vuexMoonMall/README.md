@@ -1,6 +1,6 @@
 # moonmall
 
-> A Vue.js project
+> 基于vue.js开发的卖座网
 
 ## Build Setup
 

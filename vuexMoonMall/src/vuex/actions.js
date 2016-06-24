@@ -12,9 +12,9 @@ const _get = ({ url, query },dispatch) => {
   if(dispatch) dispatch('START_LOADING')
   let _url;
   if (query) {
-    _url = `http://m.maizuo.com/v4/api${url}?${query}`;
+    _url = `http://localhost:8080/api${url}?${query}`;
   } else {
-    _url = `http://m.maizuo.com/v4/api${url}`;
+    _url = `http://localhost:8080/api${url}`;
   }
 
   return vue.http.get(_url)
