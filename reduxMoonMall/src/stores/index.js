@@ -2,18 +2,18 @@ import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 import rootReducer from '../reducers'
-// import { routerReducer } from 'react-router-redux'
+import { Route } from 'react-router';
 
 
 module.exports = function(initialState) {
   const store = createStore(
-    // combineReducers({
-    //   ...rootReducer,
-    //   routing: routerReducer
-    // }),
     rootReducer,
     initialState,
     applyMiddleware(thunkMiddleware, createLogger()),
+    reduxReactRouter({
+      routes,
+      createHistory
+    }),
   )
 
   if (module.hot) {
