@@ -67,6 +67,7 @@
     "core-js": "^2.0.0",
     "fetch": "^1.1.0",
     "isomorphic-fetch": "^2.2.1",
+    "moment": "^2.13.0",
     "normalize.css": "^4.0.0",
     "react": "^15.1.0",
     "react-dom": "^15.0.0",

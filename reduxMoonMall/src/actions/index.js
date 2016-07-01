@@ -29,7 +29,30 @@ const _get = ({ url, query },dispatch) => {
       return Promise.reject(new Error(res.status));
     })
 }
-
+/**
+ * 获取正在热映电影列表
+ * @param  {Function} options.dispatch store对象解构出来的函数，无需手动提供
+ * @param  {Number} page             页数
+ * @param  {Number} count             每页数量
+ * @return {Promise}                  Promise
+ */
+export const fetchNowPlayingLists = (page,count) => {
+  const url = '/film/now-playing';
+  const query = `count=${count}&page=${page}&_t=`+new Date().getTime()
+  return (dispatch) =>{
+    _get({ url, query},dispatch)
+      .then((json) => {
+        if (json.status===0) {
+          return dispatch({type:types.FETCH_NOW_PLAYING_SUCCESS, nowPlayingFilms:json.data.films})
+        }
+        return Promise.reject(new Error('fetchFilmsLists failure'))
+      })
+      .catch((error) => {
+        dispatch({type:types.FETCH_COMING_SOON_FAIL})
+        return Promise.reject(error)
+      })
+  }
+}
 /**
  * 获取即将开始电影列表
  * @param  {Function} options.dispatch store对象解构出来的函数，无需手动提供
@@ -44,7 +67,7 @@ export const fetchComingSoonLists = (page,count) => {
     _get({ url, query},dispatch)
       .then((json) => {
         if (json.status===0) {
-          return dispatch({type:types.FETCH_COMING_SOON_SUCCESS, comingSoonFilms:json.data})
+          return dispatch({type:types.FETCH_COMING_SOON_SUCCESS, comingSoonFilms:json.data.films})
         }
         return Promise.reject(new Error('fetchFilmsLists failure'))
       })
@@ -67,7 +90,7 @@ export const fetchBillboards = () => {
     _get({url, query}, dispatch)
       .then((json) => {
         if (json.status === 0) {
-          return dispatch({type:types.FETCH_BILLBOARD_SUCCESS, billboards:json.data})
+          return dispatch({type:types.FETCH_BILLBOARD_SUCCESS, billboards:json.data.billboards})
         }
         return Promise.reject(new Error('FETCH_BILLBOARD_SUCCESS failure'))
       })

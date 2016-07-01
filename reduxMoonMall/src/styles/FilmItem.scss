@@ -1,0 +1,37 @@
+.movie li {
+  margin: 0 17px 17px 17px;
+  background-color: #f9f9f9;
+  box-shadow: 0.5px 0.5px 1px #a8a8a8;
+  cursor: pointer;
+}
+
+.movie-item img {
+  width: 100%;
+}
+
+.desc {
+  overflow: hidden;
+  /*height: 50px;*/
+  .left {
+    padding: 13px 0 13px 13px;
+    float: left;
+    .film-name {
+      font-size: 12px;
+      line-height: 15px;;
+    }
+    .count {
+      font-size: 8px;
+      color: #9a9a9a;
+      line-height: 15px;
+    }
+  }
+  .right {
+    float: right;
+    padding-top: 13px;
+    padding-right: 13px;
+    color: #f78360;
+    .score {
+      font-size: 18px;
+    }
+  }
+}
