@@ -15,7 +15,6 @@
 > reduxMoonMall: webpack + reactjs +redux + react-router-redux + fetch Api
 
 
-
 ## 个人感受
 
 > 1.在大型项目中,建议使用vuex或者redux,不使用在状态管理上会很麻烦.
@@ -23,6 +22,12 @@
 > 2.总体开发效率上,vue比较快,而且概念相对容易理解,开发文档也相对友好.
 
 > 3.reactjs的好处就是,可以延伸到react-native还有他的生态比较好,第三方组件的完整度比较高.
+
+##跨域问题
+
+> 跨域可以使用谷歌的插件解决:https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
+
+> 或者谷歌开启允许跨域,参考 http://camnpr.com/archives/chrome-args-disable-web-security.html
 
 ##演示效果
 ![](vue卖座网.gif)
