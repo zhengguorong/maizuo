@@ -4,7 +4,7 @@
 
 ## 为什么要做这个项目?
 
-> 最近在做技术选型,分别是vuejs和reactjs,希望了解其开发效率,开发体验和代码维护难度.
+> 最近在做技术选型,分别是vuejs和reactjs实现相同的逻辑,方便对比其开发效率,开发体验和代码维护难度.
 
 ## 该项目涉及的技术
 
@@ -14,4 +14,14 @@
 
 > reduxMoonMall: webpack + reactjs +redux + react-router-redux + fetch Api
 
-![演示效果](http://192.168.240.26/zhengguorong/bmDemo/blob/master/vue%E5%8D%96%E5%BA%A7%E7%BD%91.gif)
+
+
+## 个人感受
+
+> 1.在大型项目中,建议使用vuex或者redux,不使用在状态管理上会很麻烦.
+
+> 2.总体开发效率上,vue比较快,而且概念相对容易理解,开发文档也相对友好.
+
+> 3.reactjs的好处就是,可以延伸到react-native还有他的生态比较好,第三方组件的完整度比较高.
+
+![Alt text](vue卖座网.gif)
