@@ -24,4 +24,5 @@
 
 > 3.reactjs的好处就是,可以延伸到react-native还有他的生态比较好,第三方组件的完整度比较高.
 
-![Alt text](vue卖座网.gif)
+##演示效果
+![](vue卖座网.gif)
