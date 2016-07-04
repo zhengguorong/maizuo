@@ -33,7 +33,8 @@
       <div class="film-word3">{{film.synopsis}}</div>
     </div>
     <div class="operation">
-    <button class="cpn-primary-button ">立即购票</button></div></section>
+    <button class="cpn-primary-button ">立即购票</button></div>
+  </section>
 </template>
 
 <style lang="scss">
