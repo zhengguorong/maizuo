@@ -8,11 +8,11 @@ import React,{ Component,PropTypes} from 'react';
 import { connect } from 'react-redux'
 import {fetchComingSoonLists,fetchBillboards,fetchNowPlayingLists} from '../actions'
 import 'styles/App.scss';
-import BillboardCarousel from '../components/BillboardCarousel'
-import ComingSoonFilms from '../components/ComingSoonFilms'
-import NowPlayingFilms from '../components/NowPlayingFilms'
+import BillboardCarousel from '../components/home/BillboardCarousel'
+import ComingSoonFilms from '../components/home/ComingSoonFilms'
+import NowPlayingFilms from '../components/home/NowPlayingFilms'
 
-class App extends Component {
+class IndexView extends Component {
   constructor(props) {
     super(props)
   }
@@ -39,7 +39,7 @@ class App extends Component {
   }
 
 }
-App.propTypes={
+IndexView.propTypes={
   comingSoonFilms:PropTypes.array.isRequired,
   nowPlayingFilms: PropTypes.array.isRequired,
   billboards: PropTypes.array.isRequired,
@@ -56,4 +56,4 @@ const mapStateToProps = (state) => {
 
   }
 }
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps)(IndexView)

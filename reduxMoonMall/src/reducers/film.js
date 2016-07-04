@@ -11,6 +11,8 @@ const film=(state={},action) => {
       return Object.assign({}, state, {nowPlayingFilms:action.nowPlayingFilms})
     case types.FETCH_BILLBOARD_SUCCESS:
       return Object.assign({}, state, {billboards:action.billboards})
+    case types.FETCH_DETAIL_SUCCESS:
+      return Object.assign({}, state, {detail:action.detail})
     default:
       return state
   }

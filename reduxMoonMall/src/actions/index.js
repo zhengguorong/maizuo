@@ -99,3 +99,36 @@ export const fetchBillboards = () => {
       })
   }
 }
+/**
+ * 获取电影详情
+ * @param  {Function} options.dispatch store对象解构出来的函数，无需手动提供
+ * @param  {Number} id             电影id
+ * @return {Promise}                  Promise
+ */
+export const fetchFilmDetail = (id) => {
+  const url = '/film/'+id;
+  const query = '_t='+new Date().getTime()
+  return (dispatch) =>{
+    _get({ url, query },dispatch)
+      .then((json) => {
+        if (json.status===0) {
+          return dispatch({type:types.FETCH_DETAIL_SUCCESS, detail:json.data.film});
+        }
+        return Promise.reject(new Error('FETCH_DETAIL failure'));
+      })
+      .catch((error) => {
+        // dispatch('FETCH_TOPIC_LISTS_FAILURE', topicTab, page);
+        return Promise.reject(error);
+      });
+  }
+}
+/**
+ * 切换TAB显示状态
+ */
+export const changeTab = (type) =>{
+  return dispatch=>dispatch({type:types.CUR_TAB,curTab:type})
+}
+
+export const changeLeftNavState = (isShow) =>{
+  return dispatch => dispatch({type:types.CHANGE_LEFTNAV_STATE,showLeftNav:isShow})
+}

@@ -2,8 +2,8 @@
  * Created by zhengguorong on 16/6/30.
  */
 import React from 'react'
-import 'styles/ComingSoonFilms.scss'
-import FilmItem from '../components/FilmItem'
+import './ComingSoonFilms.scss'
+import FilmItem from './FilmItem'
 
 class ComingSoonFilms extends React.Component {
   render() {

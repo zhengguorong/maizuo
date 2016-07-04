@@ -2,14 +2,18 @@
  * Created by zhengguorong on 16/6/29.
  */
 import React from 'react';
-import 'styles/Nabbar.scss'
+import {browserHistory } from 'react-router'
+import { connect} from 'react-redux'
+import {changeLeftNavState} from '../../actions'
+import './Nabbar.scss'
 
 class Navbar extends React.Component {
   render() {
+    const {dispatch} = this.props
     return (
       <nav id="toolbar">
         <h1>
-        <a href="javascript: void 0;">
+        <a href="javascript: void 0;" onClick={()=>dispatch(changeLeftNavState(true))}>
           <div className="toolbar-title-icon">
             <i className="iconfont icon-list"></i>
           </div>
@@ -18,17 +22,14 @@ class Navbar extends React.Component {
           </div>
         </a>
       </h1>
-      <div id="nav-right">
-        <a v-link="{path:'/login'}" className="user">
+      <div id="nav-right" onClick={()=>browserHistory.push('/login')}>
+        <a className="user">
           <i className="iconfont icon-user"></i>
         </a>
       </div>
     </nav>
     );
   }
-  showNav(){
-
-  }
 }
 
-export default Navbar;
+export default connect()(Navbar);

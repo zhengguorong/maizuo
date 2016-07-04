@@ -1,17 +1,16 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, combineReducers,applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 import rootReducer from '../reducers'
-// import { routerReducer } from 'react-router-redux'
+import { routerReducer } from 'react-router-redux'
 
 
 module.exports = function(initialState) {
   const store = createStore(
-    // combineReducers({
-    //   ...rootReducer,
-    //   routing: routerReducer
-    // }),
-    rootReducer,
+    combineReducers({
+      ...rootReducer,
+      routing: routerReducer
+    }),
     initialState,
     applyMiddleware(thunkMiddleware, createLogger()),
   )

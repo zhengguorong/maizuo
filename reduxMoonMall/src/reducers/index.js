@@ -6,11 +6,10 @@
  *          This modifications only run once when the generator is invoked - if
  *          you edit them, they are not updated again.
  */
-import {combineReducers} from 'redux';
 import film from './film'
 import app from './app'
 
 
-const rootReducer =  combineReducers({film, app})
+const rootReducer =  {film, app}
 
 export default rootReducer

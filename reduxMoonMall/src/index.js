@@ -3,25 +3,19 @@ import 'styles/icon.css'
 import 'normalize.css/normalize.css'
 import React from 'react';
 import {render} from 'react-dom';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux'
+import { browserHistory } from 'react-router'
+import { syncHistoryWithStore } from 'react-router-redux'
 import configureStore from './stores';
-
-import IndexView from './containers/IndexView'
-import NavBar from './components/NavBar'
-
+import App from './containers/App'
 
 const store = configureStore();
+const history = syncHistoryWithStore(browserHistory, store)
 
 render(
-  <div className="application">
-    <div className="application-head">
-      <NavBar/>
-    </div>
-    <div className="application-view">
       <Provider store={store}>
-        <IndexView/>
-      </Provider>
-    </div>
-  </div>,
+        <App history={history}/>
+      </Provider>,
+
   document.getElementById('app')
 );
