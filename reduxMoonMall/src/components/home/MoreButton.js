@@ -1,5 +1,5 @@
 import React from 'react'
-import './MoreButton.scss'
+import './MoreButton.less'
 
 class MoreButton extends React.Component{
   render(){

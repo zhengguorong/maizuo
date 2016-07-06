@@ -2,7 +2,7 @@ import React from 'react'
 import ImagePlaceholder from '../common/ImagePlaceholder'
 import {browserHistory } from 'react-router'
 import moment from 'moment'
-import './FilmItem.scss'
+import './FilmItem.less'
 
 class FilmItem extends React.Component {
   render() {

@@ -7,7 +7,7 @@
 import React,{ Component,PropTypes} from 'react';
 import { connect } from 'react-redux'
 import {fetchComingSoonLists,fetchBillboards,fetchNowPlayingLists} from '../actions'
-import 'styles/App.scss';
+import 'styles/App.less';
 import BillboardCarousel from '../components/home/BillboardCarousel'
 import ComingSoonFilms from '../components/home/ComingSoonFilms'
 import NowPlayingFilms from '../components/home/NowPlayingFilms'

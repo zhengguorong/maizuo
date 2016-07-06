@@ -1,7 +1,7 @@
 import React from 'react'
 import ImagePlaceholder from '../common/ImagePlaceholder'
 import {browserHistory } from 'react-router'
-import './NowPlayingItem.scss'
+import './NowPlayingItem.less'
 
 class NowPlayingItem extends React.Component {
   render() {

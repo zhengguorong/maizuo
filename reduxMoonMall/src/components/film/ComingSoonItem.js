@@ -1,7 +1,7 @@
 import React from 'react'
 import ImagePlaceholder from '../common/ImagePlaceholder'
 import {browserHistory } from 'react-router'
-import './ComingSoonItem.scss'
+import './ComingSoonItem.less'
 
 class ComingSoonItem extends React.Component {
   render() {

@@ -5,7 +5,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import moment from 'moment'
 import ImagePlaceholder from '../../components/common/ImagePlaceholder'
-import './DetailView.scss'
+import './DetailView.less'
 import { fetchFilmDetail } from '../../actions'
 
 class DetailView extends React.Component {

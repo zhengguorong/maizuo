@@ -2,7 +2,7 @@
  * Created by zhengguorong on 16/7/1.
  */
 import React from 'react'
-import './Login.scss'
+import './Login.less'
 
 class Login extends React.Component {
   render() {

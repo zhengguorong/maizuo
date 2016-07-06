@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import NowPlayingView from './NowPlayingView'
 import ComingSoonView from './ComingSoonView'
 import { changeTab,fetchComingSoonLists,fetchNowPlayingLists } from '../../actions'
-import './FilmView.scss'
+import './FilmView.less'
 
 class FilmView extends React.Component {
   componentDidMount(){

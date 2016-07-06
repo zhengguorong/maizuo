@@ -5,7 +5,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import {changeLeftNavState} from '../../actions'
-import './SideBar.scss'
+import './SideBar.less'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
