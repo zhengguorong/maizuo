@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import {changeLeftNavState} from '../../actions'
 import './SideBar.less'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
 class SideBar extends React.Component {
@@ -15,13 +14,12 @@ class SideBar extends React.Component {
   }
   render() {
     const { dispatch ,showLeftNav} = this.props
+
     return (
       <aside className="application-sidebar">
-      <ReactCSSTransitionGroup transitionName="sidebar" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-        {showLeftNav?
-        <div className="sidebar-container"  onClick={()=>dispatch(changeLeftNavState(false))}>
+        <div className="sidebar-container sidebar-transition" style={showLeftNav?{opacity:1,zIndex:99}:{opacity:0,zIndex:-1}} onClick={()=>dispatch(changeLeftNavState(false))}>
           <div className="sidebar-overlay">
-            <nav>
+            <nav className="leftNav-transition" style={showLeftNav?{right:110+'px'}:{right:320+'px'}}>
               <ul>
                 <li onClick={()=>browserHistory.push('/')}><a><span>首页</span><i className="iconfont icon-arrow-right right"></i></a></li>
                 <li onClick={()=>browserHistory.push('/film')}><a><span>影片</span><i className="iconfont icon-arrow-right right"></i></a></li>
@@ -32,8 +30,6 @@ class SideBar extends React.Component {
             </nav>
           </div>
         </div>
-        :''}
-      </ReactCSSTransitionGroup>
       </aside>
     )
   }

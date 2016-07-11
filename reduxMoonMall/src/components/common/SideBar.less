@@ -1,22 +1,13 @@
 .application-sidebar {
-  .sidebar-enter {
-    opacity: 0.01;
-  }
 
-  .sidebar-enter.sidebar-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
+  .leftNav-transition{
+    transition: right ease .4s;
+    -webkit-transition: right ease .4s;
   }
-
-  .sidebar-leave {
-    opacity: 1;
+  .sidebar-transition{
+    transition: all ease .4s;
+    -webkit-transition: all ease .4s;
   }
-
-  .sidebar-leave.sidebar-leave-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
-  }
-
   .sidebar-container {
     opacity: 1;
     position: fixed;
@@ -25,7 +16,6 @@
     left: 0;
     right: 0;
     color: #9a9a9a;
-    z-index: 501;
     a {
       color: #9a9a9a;
       font-size: 14px;
