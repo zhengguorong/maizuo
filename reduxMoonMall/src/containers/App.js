@@ -3,7 +3,8 @@
  */
 import React from 'react'
 import { connect } from 'react-redux'
-import { Router, Route } from 'react-router'
+import { Router, Route,IndexRoute } from 'react-router'
+import RouterWarp from './RouterWarp'
 import NavBar from '../components/common/NavBar'
 import IndexView from './IndexView'
 import DetailView from '../containers/film/DetailView'
@@ -24,12 +25,15 @@ class App extends React.Component {
         </div>
         <div className="application-view">
           <Router history={this.props.history}>
-            <Route path="/" component={IndexView}></Route>
-            <Route path="/film" component={FilmView}></Route>
-            <Route path="/detail/:id" component={DetailView}></Route>
-            <Route path="/login" component={LoginView}></Route>
-            <Route path="/cinema" component={CinemaIndexView}></Route>
-            <Route path="/card" component={CardIndexView}></Route>
+            <Route path="/" component={RouterWarp}>
+              <IndexRoute component={IndexView}/>
+              <Route path="film" component={FilmView}></Route>
+              <Route path="detail/:id" component={DetailView}></Route>
+              <Route path="login" component={LoginView}></Route>
+              <Route path="cinema" component={CinemaIndexView}></Route>
+              <Route path="card" component={CardIndexView}></Route>
+            </Route>
+
           </Router>
         </div>
         <SideBar/>

@@ -1,6 +1,6 @@
 import { createStore, combineReducers,applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
-import createLogger from 'redux-logger'
+// import createLogger from 'redux-logger'
 import rootReducer from '../reducers'
 import { routerReducer } from 'react-router-redux'
 
@@ -12,7 +12,7 @@ module.exports = function(initialState) {
       routing: routerReducer
     }),
     initialState,
-    applyMiddleware(thunkMiddleware, createLogger()),
+    applyMiddleware(thunkMiddleware),
   )
 
   if (module.hot) {
