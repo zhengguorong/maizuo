@@ -17,6 +17,7 @@
     "serve:dist": "node server.js --env=dist",
     "start": "node server.js --env=dev",
     "test": "karma start",
+    "mocha": "mocha --compilers js:babel-core/register --recursive",
     "test:watch": "karma start --autoWatch=true --singleRun=false"
   },
   "repository": "",
@@ -37,6 +38,7 @@
     "eslint": "^2.2.0",
     "eslint-loader": "^1.0.0",
     "eslint-plugin-react": "^5.0.0",
+    "expect": "^1.20.2",
     "file-loader": "^0.8.4",
     "glob": "^7.0.0",
     "isparta-instrumenter-loader": "^1.0.0",
@@ -50,6 +52,8 @@
     "karma-webpack": "^1.7.0",
     "minimist": "^1.2.0",
     "mocha": "^2.2.5",
+    "nock": "^8.0.0",
+    "node-fetch": "^1.6.0",
     "null-loader": "^0.1.1",
     "open": "0.0.5",
     "phantomjs-prebuilt": "^2.0.0",
@@ -63,6 +67,7 @@
   },
   "dependencies": {
     "core-js": "^2.0.0",
+    "fastclick": "^1.0.6",
     "fetch": "^1.1.0",
     "isomorphic-fetch": "^2.2.1",
     "less": "^2.7.1",

@@ -2,7 +2,7 @@
  * Created by zhengguorong on 16/6/29.
  */
 import React from 'react';
-import {browserHistory } from 'react-router'
+import {hashHistory } from 'react-router'
 import { connect} from 'react-redux'
 import {changeLeftNavState} from '../../actions'
 import './Nabbar.less'
@@ -22,7 +22,7 @@ class Navbar extends React.Component {
           </div>
         </a>
       </h1>
-      <div id="nav-right" onClick={()=>browserHistory.push('/login')}>
+      <div id="nav-right" onClick={()=>hashHistory.push('login')}>
         <a className="user">
           <i className="iconfont icon-user"></i>
         </a>

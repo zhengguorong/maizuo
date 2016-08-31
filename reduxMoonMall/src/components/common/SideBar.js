@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { connect } from 'react-redux'
-import { browserHistory } from 'react-router'
+import { hashHistory } from 'react-router'
 import {changeLeftNavState} from '../../actions'
 import './SideBar.less'
 
@@ -21,11 +21,11 @@ class SideBar extends React.Component {
           <div className="sidebar-overlay">
             <nav className="leftNav-transition" style={showLeftNav?{right:110+'px'}:{right:320+'px'}}>
               <ul>
-                <li onClick={()=>browserHistory.push('/')}><a><span>首页</span><i className="iconfont icon-arrow-right right"></i></a></li>
-                <li onClick={()=>browserHistory.push('/film')}><a><span>影片</span><i className="iconfont icon-arrow-right right"></i></a></li>
-                <li onClick={()=>browserHistory.push('/cinema')}><a><span>影院</span><i className="iconfont icon-arrow-right right"></i></a></li>
-                <li onClick={()=>browserHistory.push('/login')}><a><span>我的</span><i className="iconfont icon-arrow-right right"></i></a></li>
-                <li onClick={()=>browserHistory.push('/card')}><a><span>卖座网查询</span><i className="iconfont icon-arrow-right right"></i></a></li>
+                <li onClick={()=>hashHistory.push('/')}><a><span>首页</span><i className="iconfont icon-arrow-right right"></i></a></li>
+                <li onClick={()=>hashHistory.push('film')}><a><span>影片</span><i className="iconfont icon-arrow-right right"></i></a></li>
+                <li onClick={()=>hashHistory.push('cinema')}><a><span>影院</span><i className="iconfont icon-arrow-right right"></i></a></li>
+                <li onClick={()=>hashHistory.push('login')}><a><span>我的</span><i className="iconfont icon-arrow-right right"></i></a></li>
+                <li onClick={()=>hashHistory.push('card')}><a><span>卖座网查询</span><i className="iconfont icon-arrow-right right"></i></a></li>
               </ul>
             </nav>
           </div>

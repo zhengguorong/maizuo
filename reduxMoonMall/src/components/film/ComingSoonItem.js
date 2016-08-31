@@ -1,13 +1,13 @@
 import React from 'react'
 import ImagePlaceholder from '../common/ImagePlaceholder'
-import {browserHistory } from 'react-router'
+import {hashHistory } from 'react-router'
 import './ComingSoonItem.less'
 
 class ComingSoonItem extends React.Component {
   render() {
     const {film} = this.props
     return (
-      <li onClick={() => browserHistory.push('/detail/'+film.id)}>
+      <li onClick={() => hashHistory.push('/detail/'+film.id)}>
         <div className="film-item">
           <div className="film-item-img">
             <ImagePlaceholder src={film&&film.poster.thumbnail}

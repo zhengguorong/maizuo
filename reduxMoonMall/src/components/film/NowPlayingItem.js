@@ -1,13 +1,13 @@
 import React from 'react'
 import ImagePlaceholder from '../common/ImagePlaceholder'
-import {browserHistory } from 'react-router'
+import {hashHistory } from 'react-router'
 import './NowPlayingItem.less'
 
 class NowPlayingItem extends React.Component {
   render() {
     const {film} = this.props
     return (
-      <li onClick={() => browserHistory.push('/detail/'+film.id)}>
+      <li onClick={() => hashHistory.push('/detail/'+film.id)}>
         <div className="film-item">
           <div className="film-item-img">
             <ImagePlaceholder src={film&&film.poster.thumbnail} placeholder='http://static.m.maizuo.com/v4/static/app/asset/23568dc30235133ebeec89fbded3863b.png'/>

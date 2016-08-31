@@ -1,6 +1,6 @@
 import React from 'react'
 import ImagePlaceholder from '../common/ImagePlaceholder'
-import {browserHistory } from 'react-router'
+import {hashHistory } from 'react-router'
 import moment from 'moment'
 import './FilmItem.less'
 
@@ -8,7 +8,7 @@ class FilmItem extends React.Component {
   render() {
     const { film,type } = this.props
     return (
-      <li onClick={() => browserHistory.push('/detail/'+film.id)}>
+      <li onClick={() => hashHistory.push('/detail/'+film.id)}>
         <div className="movie-item">
           <div className="movie-item-img">
             <ImagePlaceholder src={film.cover&&film.cover.origin} placeholder="http://static.m.maizuo.com/v4/static/app/asset/3d2cdb3bd9a23609aa2d84e7c2bfd035.png" />
