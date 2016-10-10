@@ -9,11 +9,17 @@
 ## vue2.0参考资料
 
 > 官方文档http://vuejs.org/guide/ 中文翻译http://vuefe.cn/
+
 > vue-router2文档 http://router.vuejs.org/zh-cn/index.html
+
 > vuex2.0文档 http://vuex.vuejs.org/en/index.html
+
 > vue-resourece https://github.com/vuejs/vue-resource
+
 > 滑动广告插件 https://github.com/surmon-china/vue-awesome-swiper
 
+##演示效果
+![](../vue卖座网.gif)
 
 ## Build Setup
 
