@@ -24,6 +24,13 @@
 
 > vue2.0如果性能如网上所说的那么快，我建议使用vue,我比较喜欢vue的语法。
 
+## vue2.0参考资料
+
+> 官方文档http://vuejs.org/guide/ 中文翻译http://vuefe.cn/
+> vue-router2文档 http://router.vuejs.org/zh-cn/index.html
+> vuex2.0文档 http://vuex.vuejs.org/en/index.html
+> vue-resourece https://github.com/vuejs/vue-resource
+> 滑动广告插件 https://github.com/surmon-china/vue-awesome-swiper
 
 ## 个人感受
 
