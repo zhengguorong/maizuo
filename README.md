@@ -8,11 +8,21 @@
 
 ## 该项目涉及的技术
 
-> vueMoonMall: webpack + vuejs + vue-resource + vue-router
+> vueMaizuo: webpack + vuejs + vue-resource + vue-router
 
-> vuexMoonMall: webpack + vuejs + vuex + vue-resource + vue-router
+> vuexMaizuo: webpack + vuejs + vuex + vue-resource + vue-router
 
-> reduxMoonMall: webpack + reactjs +redux + react-router-redux + fetch Api
+> vuexMaizuo2: webpack + vuejs2.0 + vuex2.0 + vue-resource + vue-router2.0
+
+> reduxMaizuo: webpack + reactjs +redux + react-router-redux + fetch Api
+
+## 关于使用vue2.0重构
+
+> vue2.0 10月初发布正式版了，官方的插件，vuex,vue-router同样升级到2.0了，据说2.0性能比react性能高。
+
+> 重构过程比较顺利，没什么困难，最主要是生命周期名变更，还有vuex的小变动，可以使用vue-migration-helper帮助升级，有比较友好的提示。
+
+> vue2.0如果性能如网上所说的那么快，我建议使用vue,我比较喜欢vue的语法。
 
 
 ## 个人感受
