@@ -113,7 +113,3 @@ export const fetchBillboards = ({commit}) => {
       return Promise.reject(error)
     })
 }
-
-export const changeLeftNavState = ({commit}, isShow) => {
-  commit('CHANGE_LEFTNAV_STATE', isShow)
-}

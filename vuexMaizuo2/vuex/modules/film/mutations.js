@@ -1,6 +1,3 @@
-/**
- * Created by zhengguorong on 16/6/22.
- */
 import {
   FETCH_COMING_SOON_SUCCESS,
   FETCH_NOW_PLAYING_SUCCESS,
@@ -8,14 +5,7 @@ import {
   FETCH_BANNER_SUCCESS}
   from '../mutation-type'
 
-const state = {
-  comingSoonFilms: [],
-  nowPlayingFilms: [],
-  detail: {},
-  billboards: []
-}
-
-export const mutations = {
+const mutations = {
   // 获取即将上映电影列表
   [FETCH_COMING_SOON_SUCCESS] (state, data) {
     state.comingSoonFilms = data.films
@@ -34,7 +24,4 @@ export const mutations = {
   }
 }
 
-export default{
-  state,
-  mutations
-}
+export default mutations
