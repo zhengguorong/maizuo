@@ -4,11 +4,9 @@
       <div class="sidebar-overlay">
         <nav v-show="show" transition="leftNav">
           <ul>
-            <li><router-link to='/'><span>首页</span><i class="iconfont icon-arrow-right right"></i></router-link></li>
-            <li><router-link to='/film'><span>影片</span><i class="iconfont icon-arrow-right right"></i></router-link></li>
-            <li><router-link to='cinema'><span>影院</span><i class="iconfont icon-arrow-right right"></i></router-link></li>
-            <li><router-link to='/login'><span>我的</span><i class="iconfont icon-arrow-right right"></i></router-link></li>
-            <li><router-link to='card'><span>卖座网查询</span><i class="iconfont icon-arrow-right right"></i></router-link></li>
+            <li v-for="menu in menuList">
+              <router-link :to='menu.path'><span>{{menu.name}}</span><i class="iconfont icon-arrow-right right"></i></router-link>
+            </li>
           </ul>
         </nav>
       </div>
@@ -91,9 +89,15 @@
 <script>
   import { mapGetters } from 'vuex'
   export default{
-    computed: mapGetters({
-      show: 'getLeftNavState'
-    }),
+    computed: {
+      ...mapGetters({
+        show: 'getLeftNavState'
+      })
+    },
+    data () {
+      let menuList = [{name: '首页', path: '/'}, {name: '影片', path: '/film'}, {name: '影院', path: '/cinema'}, {name: '我的', path: '/login'}, {name: '卖座网查询', path: '/card'}]
+      return { menuList: menuList }
+    },
     methods: {
       hideNav () {
         this.$store.dispatch('changeLeftNavState', false)
