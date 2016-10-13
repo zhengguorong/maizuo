@@ -5,7 +5,7 @@ import App from './App'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import routerConfig from './routers'
-import store from '../vuex/store'
+import store from './vuex/store'
 import FastClick from 'fastclick'
 
 window.addEventListener('load', () => {

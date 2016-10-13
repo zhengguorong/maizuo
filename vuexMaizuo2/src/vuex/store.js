@@ -3,8 +3,8 @@
  */
 import Vue from 'vue'
 import Vuex from 'vuex'
-import film from './film'
-import app from './app'
+import film from './modules/film'
+import app from './modules/app'
 
 Vue.use(Vuex)
 

@@ -3,7 +3,7 @@ import {
   FETCH_NOW_PLAYING_SUCCESS,
   FETCH_DETAIL_SUCCESS,
   FETCH_BANNER_SUCCESS}
-  from '../mutation-type'
+  from './mutation-type'
 
 const mutations = {
   // 获取即将上映电影列表
