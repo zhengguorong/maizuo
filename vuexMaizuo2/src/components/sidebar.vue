@@ -1,31 +1,32 @@
 <template>
   <aside class="application-sidebar">
-    <div class="sidebar-container" @click="hideNav" v-show="show" transition="sidebar">
+    <!--<transition name="sidebar">-->
+    <div class="sidebar-container" @click="hideNav" v-show="show" >
       <div class="sidebar-overlay">
-        <nav v-show="show" transition="leftNav">
+        <transition name="leftNav">
+        <nav v-show="show">
           <ul>
-            <li><router-link to='/'><span>首页</span><i class="iconfont icon-arrow-right right"></i></router-link></li>
-            <li><router-link to='/film'><span>影片</span><i class="iconfont icon-arrow-right right"></i></router-link></li>
-            <li><router-link to='cinema'><span>影院</span><i class="iconfont icon-arrow-right right"></i></router-link></li>
-            <li><router-link to='/login'><span>我的</span><i class="iconfont icon-arrow-right right"></i></router-link></li>
-            <li><router-link to='card'><span>卖座网查询</span><i class="iconfont icon-arrow-right right"></i></router-link></li>
+            <li v-for="menu in menuList">
+              <router-link :to='menu.path'><span>{{menu.name}}</span><i class="iconfont icon-arrow-right right"></i></router-link>
+            </li>
           </ul>
         </nav>
+          </transition>
       </div>
     </div>
+    <!--</transition>-->
   </aside>
 </template>
 
 <style lang="less">
 .application-sidebar {
-  .sidebar-transition{
+  .sidebar-enter-active,.sidebar-leave-active{
     transition: all ease .4s;
     -webkit-transition: all ease .4s;
   }
-  .sidebar-enter, .sidebar-leave {
+  .sidebar-enter, .sidebar-leave-active {
     opacity: 0;
   }
-
 
   .sidebar-container {
     position: fixed;
@@ -46,11 +47,11 @@
       right: 0;
       bottom: 0;
       left: 0;
-      .leftNav-transition{
+      .leftNav-enter-active,.leftNav-leave--active{
         transition: right ease .4s;
         -webkit-transition: right ease .4s;
       }
-      .leftNav-enter, .leftNav-leave {
+      .leftNav-enter, .leftNav-leave--active {
         right:380px;
       }
       nav {
@@ -91,9 +92,15 @@
 <script>
   import { mapGetters } from 'vuex'
   export default{
-    computed: mapGetters({
-      show: 'getLeftNavState'
-    }),
+    computed: {
+      ...mapGetters({
+        show: 'getLeftNavState'
+      })
+    },
+    data () {
+      let menuList = [{name: '首页', path: '/'}, {name: '影片', path: '/film'}, {name: '影院', path: '/cinema'}, {name: '我的', path: '/login'}, {name: '卖座网查询', path: '/card'}]
+      return { menuList: menuList }
+    },
     methods: {
       hideNav () {
         this.$store.dispatch('changeLeftNavState', false)
