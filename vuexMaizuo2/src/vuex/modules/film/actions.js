@@ -12,9 +12,9 @@ const _get = ({ url, query }, commit) => {
   if (commit) commit('START_LOADING')
   let _url
   if (query) {
-    _url = `http://m.maizuo.com/v4/api${url}?${query}`
+    _url = `http://maizuo.vue.me/v4/api${url}?${query}`
   } else {
-    _url = `http://m.maizuo.com/v4/api${url}`
+    _url = `http://maizuo.vue.me/v4/api${url}`
   }
 
   return vue.http.get(_url)
