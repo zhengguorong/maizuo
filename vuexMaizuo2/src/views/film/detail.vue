@@ -43,6 +43,7 @@
   .film-view {
     .film-img-wrap {
       overflow: hidden;
+      min-height: 150px;
     }
 
     .film-intro {

@@ -35,6 +35,10 @@ export default {
 <style lang="less">
   @import "assets/styles/icon.css";
   @import "assets/styles/reset.css";
+  .main {
+    max-width:640px;
+    margin:0 auto;
+  }
   .application-view{
     padding: 50px 0 0;
   }
