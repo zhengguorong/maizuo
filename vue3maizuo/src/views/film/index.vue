@@ -1,5 +1,10 @@
 <template>
   <div class="index">
+    <Swiper :pagination-visible="true" direction="horizontal">
+        <!-- <img v-bind:key="index"  v-for="(item, index) in billboards" class="slide-image" :src='item.imageUrl'/> -->
+        <img class="slide-image slide-1" src="https://pic.maizuo.com/h5PicUpload/062a965ab71db31fe0b7ad6f8c529935.jpg"/>
+        <img class="slide-image slide-2" src="https://pic.maizuo.com/h5PicUpload/37a957a59a1dbe1d068cae341d10a6d7.jpg"/>
+    </Swiper>
     <!-- 热映电影列表  -->
     <div class='film-list'>
       <div class='item' v-bind:key="index"  v-for="(item, index) in playingFilms">
@@ -42,11 +47,17 @@
 import { Component, Vue } from 'vue-property-decorator';
 import api from '@/api';
 import dayjs from 'dayjs';
+import Swiper from '@/components/Swiper.vue';
 
-@Component
+@Component({
+  components: {
+    Swiper,
+  },
+})
 export default class Index extends Vue {
-  public playingFilms: object[] = [];
-  public comingFilms: object[] = [];
+  private playingFilms: object[] = [];
+  private comingFilms: object[] = [];
+  private billboards: object[] = [];
   public getTime(date: number) {
     return dayjs(date).format('M月DD日上映');
   }
@@ -57,12 +68,15 @@ export default class Index extends Vue {
     api.getComingSoon(1, 5).then((res) => {
       this.comingFilms = res.data.films;
     });
+    api.getHomeBanner().then((res) => {
+      this.billboards = res.data.billboards;
+    })
   }
 }
 </script>
 
 <style scoped lang="scss">
-.banner {
+.swiper {
   height: 210px;
 }
 

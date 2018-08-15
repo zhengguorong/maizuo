@@ -5,16 +5,17 @@
  * 以下是为了方便大家查看代码，所以把该层和业务api合并到一起了。
  * ******************************************************************
  */
-import axios, { AxiosPromise, AxiosInstance } from 'axios';
+import axios, { AxiosPromise, AxiosInstance, AxiosResponse } from 'axios';
 
 class Api {
   private http: AxiosInstance;
+  private baseUrl = '/v4/api/';
   constructor() {
     /**
      * 创建axios实例，配置基本参数
      */
     this.http = axios.create({
-      baseURL: '/v4/api/',
+      baseURL: this.baseUrl,
       timeout: 5000,
       params: {
         __t: Date.now(), // 对所有请求自动加入时间戳参数
@@ -39,6 +40,7 @@ class Api {
       },
     );
   }
+
   /**
    * 获取正在热映电影接口
    * @param page 页码
