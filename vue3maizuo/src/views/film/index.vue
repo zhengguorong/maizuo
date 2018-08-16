@@ -1,13 +1,14 @@
 <template>
   <div class="index">
-    <Swiper :pagination-visible="true" direction="horizontal">
-        <!-- <img v-bind:key="index"  v-for="(item, index) in billboards" class="slide-image" :src='item.imageUrl'/> -->
-        <img class="slide-image slide-1" src="https://pic.maizuo.com/h5PicUpload/062a965ab71db31fe0b7ad6f8c529935.jpg"/>
-        <img class="slide-image slide-2" src="https://pic.maizuo.com/h5PicUpload/37a957a59a1dbe1d068cae341d10a6d7.jpg"/>
+    <Navbar></Navbar>
+    <Swiper class="swiper" v-if="billboards.length > 0">
+        <Slide v-for="(item,index) in billboards" :key="index">
+          <img class="slide-image" :src="item.imageUrl">
+        </Slide>
     </Swiper>
     <!-- 热映电影列表  -->
     <div class='film-list'>
-      <div class='item' v-bind:key="index"  v-for="(item, index) in playingFilms">
+      <div class='item' :key="index"  v-for="(item, index) in playingFilms">
           <img :src='item.cover.origin'
                          placeholder="http://static.m.maizuo.com/v4/static/app/asset/23568dc30235133ebeec89fbded3863b.png"/>
           <div class='info-container'>
@@ -47,11 +48,14 @@
 import { Component, Vue } from 'vue-property-decorator';
 import api from '@/api';
 import dayjs from 'dayjs';
-import Swiper from '@/components/Swiper.vue';
+import {Swiper, Slide} from 'vue-swiper-component';
+import Navbar from '@/components/navbar.vue';
 
 @Component({
   components: {
     Swiper,
+    Slide,
+    Navbar,
   },
 })
 export default class Index extends Vue {
@@ -70,14 +74,14 @@ export default class Index extends Vue {
     });
     api.getHomeBanner().then((res) => {
       this.billboards = res.data.billboards;
-    })
+    });
   }
 }
 </script>
 
 <style scoped lang="scss">
 .swiper {
-  height: 210px;
+  height: rem(210);
 }
 
 .slide-image {

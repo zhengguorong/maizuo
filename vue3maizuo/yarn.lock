@@ -8142,6 +8142,10 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
+vue-swiper-component@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.npmjs.org/vue-swiper-component/-/vue-swiper-component-2.1.3.tgz#cf9ea26c924759137936a05ec51d6aedcffc14ac"
+
 vue-template-compiler@^2.5.17:
   version "2.5.17"
   resolved "https://registry.npmjs.org/vue-template-compiler/-/vue-template-compiler-2.5.17.tgz#52a4a078c327deb937482a509ae85c06f346c3cb"
