@@ -1,11 +1,6 @@
 <template>
   <div class="index">
-    <Navbar></Navbar>
-    <Swiper class="swiper" v-if="billboards.length > 0">
-        <Slide v-for="(item,index) in billboards" :key="index">
-          <img class="slide-image" :src="item.imageUrl">
-        </Slide>
-    </Swiper>
+    <Banner :billboards="billboards"></Banner>
     <!-- 热映电影列表  -->
     <div class='film-list'>
       <div class='item' :key="index"  v-for="(item, index) in playingFilms">
@@ -46,16 +41,15 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import api from '@/api';
+import api from '@/utils/api';
 import dayjs from 'dayjs';
-import {Swiper, Slide} from 'vue-swiper-component';
 import Navbar from '@/components/navbar.vue';
+import Banner from '@/components/banner.vue';
 
 @Component({
   components: {
-    Swiper,
-    Slide,
     Navbar,
+    Banner,
   },
 })
 export default class Index extends Vue {
@@ -79,45 +73,37 @@ export default class Index extends Vue {
 }
 </script>
 
-<style scoped lang="scss">
-.swiper {
-  height: rem(210);
-}
-
-.slide-image {
-  width: 100%;
-  height: 100%;
-}
-
+<style lang="scss">
 .film-list {
   .item {
     height: auto;
-    margin: 17px;
+    margin: rem(17);
     box-shadow: 0.5px 0.5px 1px #a8a8a8;
     background: #fff;
     img {
       width: 100%;
-      height: 192px;
+      height: rem(192);
     }
     .info-container {
-      padding: 10px;
+      padding: rem(10);
       display: flex;
       justify-content: space-between;
       text-align: left;
       .name {
-        font-size: 13px;
+        font-size: rem(13);
       }
       .total {
-        font-size: 11px;
+        font-size: rem(11);
+        line-height: 2;
         color: #9a9a9a;
       }
       .grade {
-        font-size: 13px;
+        font-size: rem(13);
         color: #f78360;
       }
       .time {
         color: #f78360;
-        font-size: 13px;
+        font-size: rem(13);
       }
     }
   }
@@ -125,32 +111,32 @@ export default class Index extends Vue {
 
 .more {
   display: flex;
-  margin: 0 auto;
+  margin: rem(40) auto;
   justify-content: center;
   align-items: center;
   border: 1px solid #aaa;
-  border-radius: 15px;
-  width: 160px;
-  height: 30px;
-  font-size: 13px;
+  border-radius: rem(15);
+  width: rem(160);
+  height: rem(30);
+  font-size: rem(13);
   color: #616161;
 }
 
 .split-line {
   border-bottom: 1px solid #a8a8a8;
-  margin: 80px 0;
+  margin: rem(40) 0;
   .split-text {
     display: flex;
     margin: 0 auto;
-    margin-bottom: -10px;
+    margin-bottom: rem(-10);
     justify-content: center;
     align-items: center;
     color: #eee;
     background: #a7a7a7;
-    width: 65px;
-    height: 20px;
-    font-size: 13px;
-    border-radius: 5px;
+    width: rem(65);
+    height: rem(20);
+    font-size: rem(13);
+    border-radius: rem(5);
   }
 }
 </style>

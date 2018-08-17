@@ -5,7 +5,7 @@
  * 以下是为了方便大家查看代码，所以把该层和业务api合并到一起了。
  * ******************************************************************
  */
-import axios, { AxiosPromise, AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosPromise, AxiosInstance } from 'axios';
 
 class Api {
   private http: AxiosInstance;
