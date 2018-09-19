@@ -63,7 +63,7 @@
           color: #efefef;
           text-overflow: ellipsis;
           white-space: nowrap;
-          displdday: inline-block;
+          display: inline-block;
           overflow: hidden;
         }
       }
