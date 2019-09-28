@@ -1,6 +1,6 @@
 <template>
   <nav class="toolbar">
-    <h1>
+    <h1 @click="$emit('onMenuClick')">
       <a href="javascript: void 0;">
         <div class="toolbar-title-icon">
           <i class="iconfont icon-list"></i>

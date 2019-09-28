@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Navbar></Navbar>
-    <Sidebar></Sidebar>
+    <Navbar @onMenuClick="toggleSidebar"></Navbar>
+    <Sidebar ref="sidebar"></Sidebar>
     <router-view/>
   </div>
 </template>
@@ -14,7 +14,12 @@ import Sidebar from '@/components/sidebar.vue';
 @Component({
   components: { Navbar, Sidebar },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  private toggleSidebar() {
+    // issus https://github.com/vuejs/vue/pull/6856
+    this.$refs.sidebar.toggle();
+  }
+}
 </script>
 
 

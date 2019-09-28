@@ -1,6 +1,6 @@
 <template>
-    <Swiper class="swiper" v-if="banner.length > 0">
-        <Slide v-for="(item,index) in banner" :key="index">
+    <Swiper class="swiper" v-if="billboards.length > 0">
+        <Slide v-for="(item,index) in billboards" :key="index">
           <img class="slide-image" :src="item.imageUrl">
         </Slide>
     </Swiper>
@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import {Swiper, Slide} from 'vue-swiper-component';
+import { Swiper, Slide } from 'vue-swiper-component';
 
 @Component({
   components: {
@@ -17,11 +17,8 @@ import {Swiper, Slide} from 'vue-swiper-component';
   },
 })
 export default class Banner extends Vue {
-  @Prop({default: []})
-  private billboards: object[] = [];
-  get banner() {
-    return this.billboards;
-  }
+  @Prop({ default: [] })
+  private billboards!: object[];
 }
 </script>
 

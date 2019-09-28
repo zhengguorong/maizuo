@@ -1,5 +1,5 @@
 <template>
-  <aside class="application-sidebar">
+  <aside v-if="isShow" class="application-sidebar" @click="toggle">
     <!--<transition name="sidebar">-->
     <div class="sidebar-container" >
       <div class="sidebar-overlay">
@@ -22,6 +22,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class Sidebar extends Vue {
+  private isShow: boolean = false;
   private menuList: object[] = [
     { name: '首页', path: '/' },
     { name: '影片', path: '/film' },
@@ -29,6 +30,12 @@ export default class Sidebar extends Vue {
     { name: '我的', path: '/login' },
     { name: '卖座网查询', path: '/card' },
   ];
+  /**
+   * 切换sidebar显示状态
+   */
+  public toggle() {
+    this.isShow = !this.isShow;
+  }
 }
 </script>
 
@@ -45,7 +52,7 @@ export default class Sidebar extends Vue {
     opacity: 0;
   }
   .sidebar-container {
-    display: none;
+    display: block;
     position: fixed;
     top: 0;
     bottom: 0;
