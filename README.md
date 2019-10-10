@@ -18,9 +18,9 @@
 
 > vue/maizuo_v3: webpack + vue2.0 + vuex2.0 + vue-resource + vue-router2.0
 
-> react/maizuo_v1: webpack + react15 +redux + react-router-redux + fetch Api
+> react/maizuo_v1: webpack + react15 + redux + react-router-redux + fetch Api
 
-> react/maizuo_v2: webpack + react16.8 + reactHook + react-router-redux + axios
+> react/maizuo_v2: webpack + react16.8 + reactHook + react-router + axios
 
 
 

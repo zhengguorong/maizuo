@@ -1,6 +1,3 @@
-/**
- * Created by zhengguorong on 16/7/1.
- */
 import React from 'react'
 import { connect } from 'react-redux'
 import { Router, Route,IndexRoute } from 'react-router'
