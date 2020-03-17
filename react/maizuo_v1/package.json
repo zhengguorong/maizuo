@@ -50,7 +50,7 @@
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.5",
     "karma-webpack": "^1.7.0",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.2",
     "mocha": "^2.2.5",
     "nock": "^8.0.0",
     "node-fetch": "^1.6.0",
