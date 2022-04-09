@@ -72,7 +72,7 @@
     "isomorphic-fetch": "^2.2.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
-    "moment": "^2.13.0",
+    "moment": "^2.29.2",
     "normalize.css": "^4.0.0",
     "react": "^15.1.0",
     "react-addons-css-transition-group": "^15.1.0",
