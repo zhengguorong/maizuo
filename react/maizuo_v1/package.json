@@ -53,7 +53,7 @@
     "minimist": "^1.2.0",
     "mocha": "^2.2.5",
     "nock": "^8.0.0",
-    "node-fetch": "^1.6.0",
+    "node-fetch": "^2.6.7",
     "null-loader": "^0.1.1",
     "open": "0.0.5",
     "phantomjs-prebuilt": "^2.0.0",
